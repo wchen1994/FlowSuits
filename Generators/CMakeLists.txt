@@ -8,6 +8,7 @@ set(PROJ_SOURCE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/src")
 set(PROJ_SRCS "${PROJ_SOURCE_DIR}/GenKeyInput.cpp")
 
 include_directories(
+	${MASTER_INCLUDE}
 	${PROJ_INCLUDE_DIR}
 )
 
@@ -15,4 +16,5 @@ add_library(
 	generators
 	SHARED
 	${PROJ_SRCS}
+	${MASTER_HEADERS}
 )

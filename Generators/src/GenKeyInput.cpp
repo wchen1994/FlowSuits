@@ -24,8 +24,9 @@ int GenKeyInput::run(int argc, char *argv[]){
 LRESULT GenKeyInput::LowLevelKeyboardProc(int nCode, WPARAM wParam, LPARAM lParam)
 {
 	LPKBDLLHOOKSTRUCT pHook = (LPKBDLLHOOKSTRUCT)lParam;
+	pipeout(&wParam, sizeof(WPARAM), 1);
 	pipeout(pHook, sizeof(KBDLLHOOKSTRUCT), 1);
-	return LRESULT();
+	return CallNextHookEx(NULL, nCode, wParam, lParam);
 }
 
 }
